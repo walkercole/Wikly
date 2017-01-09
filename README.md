@@ -1,24 +1,15 @@
-# README
+# Wikly
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+#Stack
 
-Things you may want to cover:
+* Ruby on Rails
 
-* Ruby version
+* Semantic UI
 
-* System dependencies
+* JavaScript
 
-* Configuration
+* PaperClip
 
-* Database creation
+* Devise
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+:]
