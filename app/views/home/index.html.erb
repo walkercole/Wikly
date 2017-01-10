@@ -1,0 +1,28 @@
+<h1> Wikly </h1>
+
+
+<%= form_for @event do |f| %>
+	
+	<%= f.label :title %>:
+	<%= f.text_field :title %><br/><br />
+
+	<%= f.label :body %>:
+	<%= f.text_area :body %><br /><br />
+
+	<%= f.label :day %>:
+	<%= f.text_field :day %><br /><br />
+
+	<%= f.label :start %>:
+	<%= f.text_field :start %><br /><br />
+
+	<%= f.label :end %>:
+	<%= f.text_field :end %><br /><br />
+
+	<%= f.label :urgency %>:
+	<%= f.text_field :urgency %><br /><br />
+
+	<%= f.label :location %>:
+	<%= f.text_field :location %>
+
+	<%= f.submit %>
+<% end %>

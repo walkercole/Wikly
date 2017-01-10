@@ -9,6 +9,14 @@
   </head>
 
   <body>
+  	<p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+	<% if user_signed_in? %>
+	   <a href="/"> <%= image_tag current_user.avatar.url(:thumb) %></a><br />
+	    <li><%= link_to 'Sign out',  destroy_user_session_path,  method: :delete, data: { confirm: 'Are you sure?' } %></li>
+	    <li><a href="/users/edit">Edit Profile </a></li> 
+	    <li><a href="/events"> My Events </a></li>   
+	<% end %>
     <%= yield %>
   </body>
 </html>

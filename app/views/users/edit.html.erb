@@ -1,0 +1,17 @@
+<h2> Edit Profile Settings </h2>
+
+<%= form_for @user, :html => { :multipart => true } do |f| %>
+  <div class="field">
+    <%= f.label :avatar %><br />
+    <%= f.file_field :avatar %>
+  </div>
+
+  <div class="field">
+  <%= f.label :email %><br />
+  <%= f.file_field :email %>
+  </div>
+
+  <%= f.hidden_field :user_id, value: current_user.id %>
+
+  <%= f.submit %>
+<% end %>

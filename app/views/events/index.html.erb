@@ -1,0 +1,11 @@
+<h1>My Wikly To-Do</h1>
+<% current_user.events.each do |f| %>
+	<%= f.title %>
+	<%= f.body %>
+	<%= f.day %>
+	<%= f.start %>
+	<%= f.end %>
+	<%= f.urgency %>
+	<%= f.location %>
+	<br /><br />
+	<% end %>
