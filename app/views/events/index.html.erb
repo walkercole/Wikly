@@ -1,4 +1,27 @@
-<h1>My Wikly To-Do</h1>
+<div class="ui celled grid">
+	<div class="ui seven column stackable row">
+		<div class="column"><h3 class="ui header">Sunday</h3></div>
+		<div class="column"><h3 class="ui header">Monday</h3></div>
+		<div class="column"><h3 class="ui header">Tuesday</h3></div>
+		<div class="column"><h3 class="ui header">Wednesday</h3></div>
+		<div class="column"><h3 class="ui header">Thursday</h3></div>
+		<div class="column"><h3 class="ui header">Friday</h3></div>
+		<div class="column"><h3 class="ui header">Saturday</h3></div>
+	</div>
+	<div id="main-grid" class="ui seven column stackable row">
+		<%= render partial: 'events_column', locals: {day: 0} %>
+		<%= render partial: 'events_column', locals: {day: 1} %>
+		<%= render partial: 'events_column', locals: {day: 2} %>
+		<%= render partial: 'events_column', locals: {day: 3} %>
+		<%= render partial: 'events_column', locals: {day: 4} %>
+		<%= render partial: 'events_column', locals: {day: 5} %>
+		<%= render partial: 'events_column', locals: {day: 6} %>
+		
+		
+	</div>
+	</div>
+	<div id="xy"></div>
+</div>
 <% current_user.events.each do |f| %>
 	<%= f.title %>
 	<%= f.body %>
@@ -8,4 +31,4 @@
 	<%= f.urgency %>
 	<%= f.location %>
 	<br /><br />
-	<% end %>
+<% end %>
