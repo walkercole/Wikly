@@ -1,0 +1,21 @@
+div#main-grid .column > div:first-child {
+	position: absolute;
+	z-index: 1;
+}
+
+div #main-grid .column:not(:first-child) > div:first-child {
+	left: -1.2em;
+}
+
+.visible {
+	visibility: visible;
+}
+
+.invisible {
+	visibility: hidden;
+}
+
+#main-grid {
+	min-height: 200px
+}
+

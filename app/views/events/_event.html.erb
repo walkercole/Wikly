@@ -1,0 +1,11 @@
+<div class="column" id="sunday">
+	<div class="invisible"></div>
+	<% current_user.events.where(day: day).each do |e| %>
+		<div id="event<%= e.id %>" 
+			class="ui vertical padded segment <%= Event::COLORS[e.urgency] %> inverted">
+			<h4 class="ui header"><%= e.title %></h4>
+			<p><%= e.body %></p>
+			<p>At: <%= e.location %></p>
+		</div>
+	<% end %>
+</div>
