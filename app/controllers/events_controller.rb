@@ -6,8 +6,8 @@ class EventsController < ApplicationController
 			redirect_to :back, notice: "Date Saved!"
 			puts "saved"
 		else
-			render "home/index", alert: "Date could not be saved!"
-			puts "failed"
+			flash[:alert] =  "Date could not be saved!"
+			render "home/index"
 		end		
 	end
 	def index
