@@ -7,6 +7,8 @@ class CreateEventTable < ActiveRecord::Migration[5.0]
     	t.integer :end
     	t.integer :urgency
     	t.string :location
+    	t.integer :day
+    	t.integer :user_id
     end
   end
 end
