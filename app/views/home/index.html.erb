@@ -1,28 +1,61 @@
-<h1> Wikly </h1>
-
+<div class="sixteen wide column">
+<h1>Create Event</h1>
 
 <%= form_for @event do |f| %>
-	
-	<%= f.label :title %>:
-	<%= f.text_field :title %><br/><br />
-
-	<%= f.label :body %>:
-	<%= f.text_area :body %><br /><br />
-
-	<%= f.label :day %>:
-	<%= f.text_field :day %><br /><br />
-
-	<%= f.label :start %>:
-	<%= f.text_field :start %><br /><br />
-
-	<%= f.label :end %>:
-	<%= f.text_field :end %><br /><br />
-
-	<%= f.label :urgency %>:
-	<%= f.text_field :urgency %><br /><br />
-
-	<%= f.label :location %>:
-	<%= f.text_field :location %>
-
-	<%= f.submit %>
+	<div class="ui form">
+		<div class="fields">
+			<div class="four wide field">
+				<%= f.label :title %>
+				<%= f.text_field :title, placeholder: "Title" %>
+			</div>
+			<div class="six wide field">
+				<%= f.label :body %>
+				<%= f.text_field :body, placeholder: "Body" %><br /><br />
+			</div>
+		</div>
+		<div class="fields">
+			<div class="three wide field">
+				<%= f.label :day %>
+				<select name="event[day]" id="event_day">
+				  <option value="0">Sunday</option>
+				  <option value="1">Monday</option>
+				  <option value="2">Tueday</option>
+				  <option value="3">Wednesday</option>
+				  <option value="4">Thursday</option>
+				  <option value="5">Friday</option>
+				  <option value="6">Saturday</option>
+				</select>				
+			</div>
+		</div>
+			<div class="two wide field">
+				<%= f.label :start %>
+				<%= f.time_select :start %>
+			</div>
+			<div class="two wide field">
+				<%= f.label :end %>
+				<%= f.time_select :end %>
+			</div>
+			<div class="three wide field">
+				<%= f.label :urgency %>
+				<select name="event[urgency]" id="event_urgency">
+					<option value="0">1</option>
+					<option value="1">2</option>
+					<option value="2">3</option>
+					<option value="3">4</option>
+					<option value="4">5</option>
+				</select>
+			</div>
+			<div class="six wide field">
+				<%= f.label :location %>
+				<%= f.text_field :location, placeholder: "Location" %>
+			</div>
+		<div class="fields">
+			<div class="two wide field">
+				<%= f.submit %>
+			</div>
+		</div>
+	</div>
 <% end %>
+
+
+</div>
