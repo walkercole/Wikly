@@ -23,10 +23,35 @@ div#main-grid div.column {
 	padding: 0px;
 }
 
-.event-class.ui.vertical.padded.segment {
+.event-class.ui.center.aligned.vertical.padded.segment {
 	padding: 0px;
 	margin: 0px;
 	position: absolute;
 	left: 0;
 	right: 0;
+	height: 100%;
+}
+
+
+.event-class.ui.vertical.padded.segment:hover {
+	height: auto !important;
+}
+
+.event-buttons {
+	padding-bottom: 6px;
+}
+
+.event-class .ui.header {
+	margin: 0;
+}
+
+#event-outline {
+	position: absolute;
+	left: 0;
+	right: 0;
+}
+
+#event-outline:hover {
+	border: 1px dashed grey;
+	background: rgba(0,0,0,.3);
 }
