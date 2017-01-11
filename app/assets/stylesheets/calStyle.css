@@ -34,10 +34,11 @@ div#main-grid div.column {
 
 
 .event-class.ui.vertical.padded.segment:hover {
-	height: auto !important;
+
 }
 
 .event-buttons {
+	position: relative;
 	padding-bottom: 6px;
 }
 
@@ -45,13 +46,3 @@ div#main-grid div.column {
 	margin: 0;
 }
 
-#event-outline {
-	position: absolute;
-	left: 0;
-	right: 0;
-}
-
-#event-outline:hover {
-	border: 1px dashed grey;
-	background: rgba(0,0,0,.3);
-}

@@ -41,7 +41,8 @@ $(document).ready(function(){
 	}
 
 	function setEventElement(elEvent, evt) {
-		let display = elEvent.parentElement.parentElement.children[0],
+		let display = elEvent.parentElement.children[0],
+			colHeight = elEvent.parentElement.offsetHeight,
 			tStart = new Date(evt.start),
 			tStartHDec = tStart.getUTCHours()/24,
 			tStartMDec = (tStart.getUTCMinutes()/60)/24,
@@ -60,21 +61,24 @@ $(document).ready(function(){
 			buttons = elEvent.children[1];
 
 
-		elEvent.parentElement.style.top = tStartPercent +"%";
-		elEvent.parentElement.style.height = duration + "%";
+		elEvent.style.top = tStartPercent +"%";
+		elEvent.style.height = duration + "%";
 
 
-		elEvent.parentElement.addEventListener('mousemove', function(e){
+		elEvent.addEventListener('mousemove', function(e){
 			display.innerText = evt.title+"\n"+evt.body+"\n"+
 					"at "+evt.location+"\nfrom "+startTime
 					+ " til " + endTime;
-			buttons.className = "event-buttons visible";
-			elEvent.style.height = "auto";
 
+			buttons.className = "event-buttons visible";
+
+			if((duration*colHeight) < 5900){
+				elEvent.style.height = "auto";
+			}
 		}, true);
-		elEvent.parentElement.addEventListener('mouseleave',function(e){
+		elEvent.addEventListener('mouseleave',function(e){
 			buttons.className = "event-buttons invisible";
-			elEvent.style.height = "100%"
+			elEvent.style.height = duration + "%";
 		}, false)
 
 
@@ -92,6 +96,7 @@ $(document).ready(function(){
 		col.addEventListener('mousemove',function(e){
 			display.className = 'ui red ribbon label visible';
 			display.style.bottom = clockSlider(e,col);
+
 			console.log((dayPercent(e,col)*100)-5)
 			console.log(clockSlider(e,col));
 			display.innerText = hoursAndMinutes(e,col);
