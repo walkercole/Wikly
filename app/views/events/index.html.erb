@@ -23,13 +23,4 @@
 		<%= render partial: 'events_column', locals: {day: 6} %>		
 	</div>
 </div>
-<% current_user.events.each do |f| %>
-	<%= f.title %>
-	<%= f.body %>
-	<%= f.day %>
-	<%= f.start %>
-	<%= f.end %>
-	<%= f.urgency %>
-	<%= f.location %>
-	<br /><br />
-<% end %>
+
