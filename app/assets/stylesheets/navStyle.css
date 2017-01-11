@@ -11,7 +11,8 @@
 	margin-left: 10%;
 }
 #bartitle {
-	margin-top: 2%;
+	margin-top: 1%;
+	margin-left: 2%;
 }
 #navButton {
 	margin-top: 2%;
@@ -22,4 +23,8 @@
 }
 #modalButton {
 	margin-right: 45%;
+}
+#wiklyLogo {
+	width: 200%;
+	height: 200%;
 }
