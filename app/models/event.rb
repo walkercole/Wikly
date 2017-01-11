@@ -1,5 +1,5 @@
 class Event < ApplicationRecord
-	COLORS = ['green','olive','yellow','orange','red']
+	COLORS = ['blue','teal','green','olive','yellow']
 	belongs_to :user
 
 	validates_numericality_of :urgency, :in => 1..5

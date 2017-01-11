@@ -19,3 +19,14 @@ div #main-grid .column:not(:first-child) > div:first-child {
 	min-height: 400px
 }
 
+div#main-grid div.column {
+	padding: 0px;
+}
+
+.event-class.ui.vertical.padded.segment {
+	padding: 0px;
+	margin: 0px;
+	position: absolute;
+	left: 0;
+	right: 0;
+}

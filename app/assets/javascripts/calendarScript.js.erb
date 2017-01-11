@@ -38,13 +38,13 @@ $(document).ready(function(){
 
 	function setEventHeight(elEvent, evt) {
 		let tStart = new Date(evt.start),
-			tStartHDec = (tStart.getUTCHours()/24)*100,
-			tStartMDec = (tStart.getUTCMinutes()/60),
-			tStartPercent = tStartHDec + tStartMDec,
+			tStartHDec = tStart.getUTCHours()/24,
+			tStartMDec = (tStart.getUTCMinutes()/60)/24,
+			tStartPercent = (tStartHDec + tStartMDec)*100,
 			tEnd = new Date(evt.end),
-			tEndHDec = (tEnd.getUTCHours()/24)*100,
-			tEndMDec = (tEnd.getUTCMinutes()/60),
-			tEndPercent = tEndHDec + tEndMDec,
+			tEndHDec = tEnd.getUTCHours()/24,
+			tEndMDec = (tEnd.getUTCMinutes()/60)/24,
+			tEndPercent = (tEndHDec + tEndMDec)*100,
 			duration = tEndPercent - tStartPercent;
 
 
