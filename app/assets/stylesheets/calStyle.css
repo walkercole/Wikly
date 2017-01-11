@@ -16,6 +16,6 @@ div #main-grid .column:not(:first-child) > div:first-child {
 }
 
 #main-grid {
-	min-height: 200px
+	min-height: 400px
 }
 

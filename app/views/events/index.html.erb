@@ -1,3 +1,8 @@
+<script>
+	// TODO eventually turn this into an AJAX call that only returns relevent Event objects
+	let events = JSON.parse('<%= raw @events.to_json %>');
+</script>
+
 <div class="ui celled grid">
 	<div class="ui seven column stackable row">
 		<div class="column"><h3 class="ui header">Sunday</h3></div>
@@ -15,12 +20,8 @@
 		<%= render partial: 'events_column', locals: {day: 3} %>
 		<%= render partial: 'events_column', locals: {day: 4} %>
 		<%= render partial: 'events_column', locals: {day: 5} %>
-		<%= render partial: 'events_column', locals: {day: 6} %>
-		
-		
+		<%= render partial: 'events_column', locals: {day: 6} %>		
 	</div>
-	</div>
-	<div id="xy"></div>
 </div>
 <% current_user.events.each do |f| %>
 	<%= f.title %>

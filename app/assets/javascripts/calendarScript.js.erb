@@ -30,6 +30,18 @@ $(document).ready(function(){
 		}
 	}
 
+	for (ev of document.getElementsByClassName('event-class')) {
+		let evId = parseInt(ev.getAttribute("data-id"));
+		eventData = events.find((e) => e.id === evId);
+		setEventHeight(ev, eventData);
+	}
+
+	function setEventHeight(elEvent, evt) {
+		elEvent.style.top = ((evt.start/12)*100)+"%";
+		console.log("setting event height for ", evt);
+
+	}
+
 	for (col of document.querySelectorAll('#main-grid .column')) {
 		console.log("adding evt listener to", col);
 		attachListener(col);
