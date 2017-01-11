@@ -37,7 +37,20 @@ $(document).ready(function(){
 	}
 
 	function setEventHeight(elEvent, evt) {
-		elEvent.style.top = ((evt.start/12)*100)+"%";
+		let tStart = new Date(evt.start),
+			tStartHDec = (tStart.getUTCHours()/24)*100,
+			tStartMDec = (tStart.getUTCMinutes()/60),
+			tStartPercent = tStartHDec + tStartMDec,
+			tEnd = new Date(evt.end),
+			tEndHDec = (tEnd.getUTCHours()/24)*100,
+			tEndMDec = (tEnd.getUTCMinutes()/60),
+			tEndPercent = tEndHDec + tEndMDec,
+			duration = tEndPercent - tStartPercent;
+
+
+		elEvent.style.top = tStartPercent +"%";
+		elEvent.style.height = duration + "%";
+
 		console.log("setting event height for ", evt);
 
 	}
