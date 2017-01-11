@@ -1,0 +1,30 @@
+#anav {
+	color:black;
+}
+.nav_class:hover, #anav:hover {
+	color:lightgrey;
+}
+#navbar {
+	padding-bottom: 0%;
+}
+#bartar {
+	margin-left: 10%;
+}
+#bartitle {
+	margin-top: 1%;
+	margin-left: 2%;
+}
+#navButton {
+	margin-top: 2%;
+	margin-left: 10%;
+}
+#flashm {
+
+}
+#modalButton {
+	margin-right: 45%;
+}
+#wiklyLogo {
+	width: 200%;
+	height: 200%;
+}

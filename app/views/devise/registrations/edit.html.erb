@@ -1,7 +1,9 @@
 <div class="row">
   <div class="ui form">
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-    <%= devise_error_messages! %>
+    <% if @user.errors.any? %>
+      <% @notice = "Profile could not be updated" %>
+    <% end %>
       <h2>Edit <%= resource_name.to_s.humanize %></h2>  
       <div class="field">
         <div class="eight wide field">
@@ -60,6 +62,5 @@
 
     <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
-    <%= link_to "Back", :back %>
   </div>
 </div>
