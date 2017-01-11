@@ -1,0 +1,22 @@
+#anav {
+	color:black;
+}
+.nav_class:hover, #anav:hover {
+	color:lightgrey;
+}
+#navbar {
+	padding-bottom: 0%;
+}
+#bartar {
+	margin-left: 10%;
+}
+#bartitle {
+	margin-top: 2%;
+}
+#navButton {
+	margin-top: 2%;
+	margin-left: 10%;
+}
+#flashm {
+
+}

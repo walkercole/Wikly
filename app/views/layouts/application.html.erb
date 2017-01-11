@@ -12,21 +12,52 @@ https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.6/semantic.js"></script>
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.6/semantic.css">
   </head>
 
-  <body data-controller="<%= :controller %>" data-action="<%= :action %>">
+  <body data-controller="<%= controller %>">
+	  <% if notice || alert || @alert || @notice  %>	
+	  	<div class="ui basic modal">
+		  <div class="ui icon header">
+		    <i class="archive icon"></i>
+		    The server says:
+		  </div>
+		  <div class="content">
+		    <p class="notice"><%= notice %><%= @notice %></p>
+	     	<p class="alert"><%= alert %><%= @alert %></p>
+		  </div>
+		  <div class="actions">
+		    <div class="ui green ok inverted button">
+		      <i class="checkmark icon"></i>
+		      Okay
+		    </div>
+		  </div>
+		</div>
+	  <% end %>
     <div class="ui grid container">
-      <div class="blue row">
-      <br/>
-      <a href="/"><h1 class="ui header">wikly</h1></a>
-      </div>
-    	<p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
-    	<% if user_signed_in? %>
-			<div><%= image_tag current_user.avatar.url(:thumb) %></div><br />
-    	    <li><%= link_to 'Sign out',  destroy_user_session_path,  method: :delete, data: { confirm: 'Are you sure?' } %></li>
-    	    <li><a href="/users/edit">Edit Profile </a></li> 
-    	    <li><a href="/events"> My Events </a></li>   
-    	<% end %>
+      	<div id="navbar" class="blue row">
+	      <br/>
+	      	<div id="bartitle" class="one wide column">
+		      	<a href="/"><h1 class="ui header">wikly</h1></a>
+	      	</div>
+	    	<% if user_signed_in? %>
+	    		<div id="navButton" class="two wide column">
+	    	    	<%= link_to 'Sign out',  destroy_user_session_path, :class => "ui button",  method: :delete, data: { confirm: 'Are you sure?' } %>
+		    	</div>
+		    	<div id="navButton" class="two wide column">
+	    	    	<a href="/users/edit" id="anav"><button class="ui button">Edit Profile</button></a>
+		    	</div>
+		    	<div id="navButton" class="two wide column">
+	    	    	<a href="/events" id="anav"><button class="ui button"> My Events </button></a>
+	    	    </div> 
+				<div id="bartar" class="two wide column">
+					<%= image_tag current_user.avatar.url(:thumb) %>
+				</div> 
+	    	<% end %>
+		</div>			
       <%= yield %>
     </div>
+    <script type="text/javascript">
+    	$('.ui.basic.modal')
+  			.modal('show')
+		;
+    </script>
   </body>
 </html>
