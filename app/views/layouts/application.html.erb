@@ -16,15 +16,16 @@ https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.6/semantic.js"></script>
 	  <% if notice || alert || @alert || @notice  %>	
 	  	<div class="ui basic modal">
 		  <div class="ui icon header">
-		    <i class="archive icon"></i>
+		    <i class="comment outline icon"></i>
 		    The server says:
-		  </div>
-		  <div class="content">
-		    <p class="notice"><%= notice %><%= @notice %></p>
-	     	<p class="alert"><%= alert %><%= @alert %></p>
-		  </div>
+
+			  <div class="content">
+			    <p class="notice"><%= notice %><%= @notice %></p>
+		     	<p class="alert"><%= alert %><%= @alert %></p>
+			  </div>
+  		  </div>
 		  <div class="actions">
-		    <div class="ui green ok inverted button">
+		    <div id="modalButton" class="ui green ok inverted button">
 		      <i class="checkmark icon"></i>
 		      Okay
 		    </div>
