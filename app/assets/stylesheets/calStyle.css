@@ -51,7 +51,7 @@ div#main-grid div.column {
 .event-modal {
 	position: fixed;
 	top: 20vh;
-	height: 50vh;
+	height: 350px;
 	left: 30vw;
 	width: 40vw;
 	background-color: #f0f0f0;
