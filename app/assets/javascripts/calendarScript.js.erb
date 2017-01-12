@@ -69,7 +69,7 @@ $(document).ready(function(){
 			display.innerText = evt.title+"\n"+evt.body+"\n"+
 					"at "+evt.location+"\nfrom "+startTime
 					+ " til " + endTime;
-
+			display.style.bottom = colHeight - ((tStartPercent/100)*colHeight) + "px";
 			buttons.className = "event-buttons visible";
 
 			if((duration*colHeight) < 5900){
@@ -82,6 +82,16 @@ $(document).ready(function(){
 		}, false)
 
 
+	}
+
+	for (button of document.querySelectorAll('.edit-button')) {
+		editClick(button);
+	}
+
+	function editClick(b){
+		b.addEventListener('click', function(e){
+			alert("I'm the button for editing event "+b.id.substring(4));
+		})
 	}
 
 

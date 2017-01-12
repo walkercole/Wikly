@@ -5,9 +5,10 @@
 		<div id="e<%= e.id %>" data-id="<%= e.id %>"
 			 class="event-class ui center aligned vertical padded segment <%= Event::COLORS[e.urgency] %> inverted">
 			<h4 class="ui header"><%= e.title %></h4>
+			
 			<div class="event-buttons invisible">
-				<div class="ui icon button"><i class="edit icon"></i></div>
-				<div class="ui icon button"><i class="trash outline icon"></i></div>
+				<div id="edit<%= e.id %>" class="edit-button ui icon button"><i class="edit icon"></i></div>
+				<div id="delete<%= e.id %>" class="delete-button ui icon button"><i class="trash outline icon"></i></div>
 			</div>
 		</div>
 	<% end %>
