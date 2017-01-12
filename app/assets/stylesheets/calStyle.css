@@ -4,6 +4,12 @@ div#main-grid .column > div:first-child {
 	z-index: 2;
 }
 
+div#main-grid .column div {
+
+	transition: max-height 1s;
+
+}
+
 div #main-grid .column:not(:first-child) > div:first-child {
 	left: -1.2em;
 }
