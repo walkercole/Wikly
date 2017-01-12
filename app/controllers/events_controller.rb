@@ -4,7 +4,7 @@ class EventsController < ApplicationController
 		@event = current_user.events.new(event_params)
 
 		if @event.save
-			redirect_to :back, notice: "Date Saved!"
+			redirect_to "/events", notice: "Date Saved!"
 			puts "saved"
 		else
 			@alert =  "Date could not be saved! #{@event.errors.full_messages}"
