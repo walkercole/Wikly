@@ -1,6 +1,6 @@
 div#main-grid .column > div:first-child {
 	position: absolute;
-	z-index: 1;
+	z-index: 2;
 }
 
 div #main-grid .column:not(:first-child) > div:first-child {
@@ -23,10 +23,27 @@ div#main-grid div.column {
 	padding: 0px;
 }
 
-.event-class.ui.vertical.padded.segment {
+.event-class.ui.center.aligned.vertical.padded.segment {
 	padding: 0px;
 	margin: 0px;
 	position: absolute;
 	left: 0;
 	right: 0;
+	height: 100%;
+	min-height: 19px;
 }
+
+
+.event-class.ui.vertical.padded.segment:hover {
+	z-index: 1;
+}
+
+.event-buttons {
+	position: relative;
+	padding-bottom: 6px;
+}
+
+.event-class .ui.header {
+	margin: 0;
+}
+

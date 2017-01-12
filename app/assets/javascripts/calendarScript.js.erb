@@ -12,32 +12,38 @@ $(document).ready(function(){
 	};
 
 	function hoursAndMinutes(e,col) {
-		var am = dayPercent(e,col) < .5;
 		var h = Math.floor((dayPercent(e,col)*24)%12);
 		var m = Math.floor(((24*dayPercent(e,col))%1)*60);
-		return ((h > 0 ? h : "12") + ":" +
-			(m > 0 ? (m < 10 ? "0" : "") + m : "00") + 
-			(dayPercent(e,col) < .5 ? "AM" : "PM"));
+		return timeFormatter(h,m) + (dayPercent(e,col) < .5 ? "AM" : "PM");
 	}
 
-	function clockSlider(e,col) {
-		slideLocation = (dayPercent(e,col) * col.offsetHeight) - 40;
+	function timeFormatter(h,m){
+		return	((h > 0 ? h : "12") + ":" +
+			(m > 0 ? (m < 10 ? "0" : "") + m : "00"));
+	}
 
-		if(slideLocation < -25){
-			return "-25px";
+
+	function clockSlider(e,col) {
+		slideLocation = (dayPercent(e,col) * col.offsetHeight)-15;
+
+		if(slideLocation < 0){
+			return col.offsetHeight + "px";
 		} else {
-			return slideLocation + "px";
+			return col.offsetHeight - slideLocation + "px";
 		}
 	}
 
 	for (ev of document.getElementsByClassName('event-class')) {
 		let evId = parseInt(ev.getAttribute("data-id"));
 		eventData = events.find((e) => e.id === evId);
-		setEventHeight(ev, eventData);
+		setEventElement(ev, eventData);
+
 	}
 
-	function setEventHeight(elEvent, evt) {
-		let tStart = new Date(evt.start),
+	function setEventElement(elEvent, evt) {
+		let display = elEvent.parentElement.children[0],
+			colHeight = elEvent.parentElement.offsetHeight,
+			tStart = new Date(evt.start),
 			tStartHDec = tStart.getUTCHours()/24,
 			tStartMDec = (tStart.getUTCMinutes()/60)/24,
 			tStartPercent = (tStartHDec + tStartMDec)*100,
@@ -45,15 +51,49 @@ $(document).ready(function(){
 			tEndHDec = tEnd.getUTCHours()/24,
 			tEndMDec = (tEnd.getUTCMinutes()/60)/24,
 			tEndPercent = (tEndHDec + tEndMDec)*100,
-			duration = tEndPercent - tStartPercent;
+			duration = tEndPercent - tStartPercent,
+			startH = tStart.getUTCHours(),
+			startM = tStart.getUTCMinutes(),
+			startTime = timeFormatter(startH,startM),
+			endH = tEnd.getUTCHours(),
+			endM = tEnd.getUTCMinutes(),
+			endTime = timeFormatter(endH,endM),
+			buttons = elEvent.children[1];
 
 
 		elEvent.style.top = tStartPercent +"%";
 		elEvent.style.height = duration + "%";
 
-		console.log("setting event height for ", evt);
+
+		elEvent.addEventListener('mousemove', function(e){
+			display.innerText = evt.title+"\n"+evt.body+"\n"+
+					"at "+evt.location+"\nfrom "+startTime
+					+ " til " + endTime;
+			display.style.bottom = colHeight - ((tStartPercent/100)*colHeight) + "px";
+			buttons.className = "event-buttons visible";
+
+			if((duration*colHeight) < 5900){
+				elEvent.style.height = "auto";
+			}
+		}, true);
+		elEvent.addEventListener('mouseleave',function(e){
+			buttons.className = "event-buttons invisible";
+			elEvent.style.height = duration + "%";
+		}, false)
+
 
 	}
+
+	for (button of document.querySelectorAll('.edit-button')) {
+		editClick(button);
+	}
+
+	function editClick(b){
+		b.addEventListener('click', function(e){
+			alert("I'm the button for editing event "+b.id.substring(4));
+		})
+	}
+
 
 	for (col of document.querySelectorAll('#main-grid .column')) {
 		console.log("adding evt listener to", col);
@@ -65,11 +105,12 @@ $(document).ready(function(){
 		console.log("this col's display is", display);
 		col.addEventListener('mousemove',function(e){
 			display.className = 'ui red ribbon label visible';
-			display.style.top = clockSlider(e,col);
+			display.style.bottom = clockSlider(e,col);
+
 			console.log((dayPercent(e,col)*100)-5)
 			console.log(clockSlider(e,col));
 			display.innerText = hoursAndMinutes(e,col);
-		}, false);
+		}, true);
 		col.addEventListener('mouseleave', function(e){
 			display.className = 'invisible';
 		})
