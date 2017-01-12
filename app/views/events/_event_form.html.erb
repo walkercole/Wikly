@@ -1,0 +1,69 @@
+<%= form_for event do |f| %>
+
+	<div class="ui form centered grid">
+
+		<div class="row">
+		<div class="fields">	
+			<div class="eight wide field">
+				<%= f.label :title %>
+				<%= f.text_field :title, placeholder: "Title" %>
+			</div>
+			<div class="eight wide field">
+				<%= f.label :body %>
+				<%= f.text_area :body, placeholder: "Body", rows: 1 %><br /><br />
+			</div>
+		</div>
+		</div>
+		<div class="row">
+		<div class="fields">
+			<div class="five wide field">
+				<%= f.label :day %>
+				<select name="event[day]" id="event_day">
+				  <option value="0">Sunday</option>
+				  <option value="1">Monday</option>
+				  <option value="2">Tueday</option>
+				  <option value="3">Wednesday</option>
+				  <option value="4">Thursday</option>
+				  <option value="5">Friday</option>
+				  <option value="6">Saturday</option>
+				</select>				
+			</div>
+
+			<div class="five wide field">
+				<%= f.label :urgency %>
+				<select name="event[urgency]" id="event_urgency">
+					<option value="0">1</option>
+					<option value="1">2</option>
+					<option value="2">3</option>
+					<option value="3">4</option>
+					<option value="4">5</option>
+				</select>
+			</div>
+			<div class="five wide field">
+				<%= f.label :location %>
+				<%= f.text_field :location, placeholder: "Location" %>
+			</div>
+		</div>
+		</div>
+
+		<div class="row">
+
+			<div class="eight wide field">
+				<%= f.label :start %>
+				<%= f.time_select :start %>
+			</div>
+			<div class="eight wide field">
+				<%= f.label :end %>
+				<%= f.time_select :end %>
+			</div>
+
+
+			<div class="sixteen wide field">
+				<%= f.submit class: "ui button" %>
+				<div class="ui button discard-changes">Discard Changes</div>
+			</div>
+
+		</div>
+
+	</div>
+<% end %>

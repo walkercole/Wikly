@@ -90,10 +90,31 @@ $(document).ready(function(){
 
 	function editClick(b){
 		b.addEventListener('click', function(e){
-			alert("I'm the button for editing event "+b.id.substring(4));
+			e.currentTarget.parentElement.nextElementSibling.className = "event-modal visible";
 		})
 	}
 
+	for (button of document.querySelectorAll('.discard-changes')) {
+		hideModal(button);
+	}
+
+	function hideModal(b){
+		b.addEventListener('click', function(e){
+			for (modal of document.querySelectorAll('.event-modal')) {
+				modal.className = "event-modal invisible";
+			}
+		})
+	}
+
+	for (button of document.querySelectorAll('.delete-button')) {
+		deleteClick(button, true);
+	}
+
+	function deleteClick(b, bool){
+		b.addEventListener('click', function(e){
+			alert("Are you sure?");
+		})
+	}
 
 	for (col of document.querySelectorAll('#main-grid .column')) {
 		console.log("adding evt listener to", col);

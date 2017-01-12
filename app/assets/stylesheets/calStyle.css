@@ -1,3 +1,4 @@
+
 div#main-grid .column > div:first-child {
 	position: absolute;
 	z-index: 2;
@@ -47,3 +48,19 @@ div#main-grid div.column {
 	margin: 0;
 }
 
+.event-modal {
+	position: fixed;
+	top: 20vh;
+	height: 50vh;
+	left: 30vw;
+	width: 40vw;
+	background-color: #f0f0f0;
+	border-radius: 8px;
+	margin-left: auto;
+	z-index: 1;
+
+}
+
+div.ui.form.centered.grid {
+	margin: 0;
+}
