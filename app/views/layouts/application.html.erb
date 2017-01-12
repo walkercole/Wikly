@@ -10,6 +10,7 @@
   <script type="text/javascript" src="
 https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.6/semantic.js"></script>
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.6/semantic.css">
+  <link rel="icon" type="image/png" href="/wiklyfav.ico" sizes="32x32">
   </head>
 
   <body data-controller="<%= controller %>">
@@ -40,6 +41,9 @@ https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.6/semantic.js"></script>
 	      	</div>
 	    	<% if user_signed_in? %>
 	    		<div id="navButton" class="two wide column">
+	    			<a href="/" id="anav"><button class="ui button">New Event</button></a>
+	    		</div>
+	    		<div id="navButton" class="two wide column">
 	    	    	<%= link_to 'Sign out',  destroy_user_session_path, :class => "ui button",  method: :delete, data: { confirm: 'Are you sure?' } %>
 		    	</div>
 		    	<div id="navButton" class="two wide column">
@@ -48,7 +52,7 @@ https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.6/semantic.js"></script>
 		    	<div id="navButton" class="two wide column">
 	    	    	<a href="/events" id="anav"><button class="ui button"> My Events </button></a>
 	    	    </div> 
-				<div id="bartar" class="two wide column">
+				<div id="bartar" class="one wide column">
 					<%= image_tag current_user.avatar.url(:thumb) %>
 				</div> 
 	    	<% end %>

@@ -1,6 +1,6 @@
 <script>
 	// TODO eventually turn this into an AJAX call that only returns relevent Event objects
-	let events = <%=raw @events.to_json %>;
+	let events = <%= raw @events.to_json %>;
 </script>
 
 <div class="ui celled grid">
