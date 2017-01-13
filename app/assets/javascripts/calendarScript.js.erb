@@ -37,13 +37,13 @@ $(document).ready(function(){
 
 
 	document.querySelectorAll('.event-class').forEach(function(ev){
-		let evId = parseInt(ev.getAttribute("data-id"));
-		eventData = events.find((e) => e.id === evId);
+		var evId = parseInt(ev.getAttribute("data-id"));
+		eventData = events.find(function(e){return e.id === evId});
 		setEventElement(ev, eventData);
 	});
 
 	function setEventElement(elEvent, evt) {
-		let display = elEvent.parentElement.children[0],
+		var display = elEvent.parentElement.children[0],
 			colHeight = elEvent.parentElement.offsetHeight,
 			tStart = new Date(evt.start),
 			tStartHDec = tStart.getUTCHours()/24,
