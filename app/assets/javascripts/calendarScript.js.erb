@@ -33,12 +33,14 @@ $(document).ready(function(){
 		}
 	}
 
-	for (ev of document.getElementsByClassName('event-class')) {
+
+
+
+	document.querySelectorAll('.event-class').forEach(function(ev){
 		let evId = parseInt(ev.getAttribute("data-id"));
 		eventData = events.find((e) => e.id === evId);
 		setEventElement(ev, eventData);
-
-	}
+	});
 
 	function setEventElement(elEvent, evt) {
 		let display = elEvent.parentElement.children[0],
@@ -84,32 +86,32 @@ $(document).ready(function(){
 
 	}
 
-	for (button of document.querySelectorAll('.edit-button')) {
+	document.querySelectorAll('.edit-button').forEach(function(button){
 		editClick(button);
-	}
+	});
 
 	function editClick(b){
 		b.addEventListener('click', function(e){
 			e.currentTarget.parentElement.nextElementSibling.className = "event-modal visible";
-			
+
 		})
 	}
 
-	for (button of document.querySelectorAll('.discard-changes')) {
+	document.querySelectorAll('.discard-changes').forEach(function(button){
 		hideModal(button);
-	}
+	});
 
 	function hideModal(b){
 		b.addEventListener('click', function(e){
-			for (modal of document.querySelectorAll('.event-modal')) {
+			document.querySelectorAll('.event-modal').forEach(function(modal){
 				modal.className = "event-modal invisible";
-			}
+			});
 		})
 	}
 
-	for (button of document.querySelectorAll('.delete-button')) {
+	document.querySelectorAll('.delete-button').forEach(function(button){
 		deleteClick(button, true);
-	}
+	});
 
 	function deleteClick(b, bool){
 		b.addEventListener('click', function(e){
@@ -117,10 +119,10 @@ $(document).ready(function(){
 		})
 	}
 
-	for (col of document.querySelectorAll('#main-grid .column')) {
+	document.querySelectorAll('#main-grid .column').forEach(function(col){
 		console.log("adding evt listener to", col);
 		attachListener(col);
-	}
+	});
 
 	function attachListener(col) {
 		var display = col.children[0];
